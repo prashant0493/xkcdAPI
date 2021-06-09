@@ -58,6 +58,7 @@ def fetch_comic(comic_id: int) -> Dict:
 
     endpoint = Endpoints.COMIC.value.format(comic_id)
     response = requests.get(endpoint)
+
     response.raise_for_status()
     print(f"\n-- data has been downloaded from ```{endpoint}``` -- {response.status_code}")
 

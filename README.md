@@ -106,25 +106,25 @@ your Github repo
 ```json
 [
   {
-    'comic': "Stacey's Dad",
-    'comic_meta': {
-      'alt_text': "I bet she gets you to mow the lawn, doesn't she?",
-      'number': 61,
-      'link': 'https://www.xkcd.com/61',
-      'image': 'staceys_dad.jpg',
-      'image_link': 'https://imgs.xkcd.com/comics/staceys_dad.jpg'
+    "comic": "Staceys Dad",
+    "comic_meta": {
+      "alt_text": "I bet she gets you to mow the lawn, doesnt she?",
+      "number": 61,
+      "link": "https://www.xkcd.com/61",
+      "image": "staceys_dad.jpg",
+      "image_link": "https://imgs.xkcd.com/comics/staceys_dad.jpg"
     }
   },
 ...,
 ...,
   {
-    'comic': 'Valentine - Karnaugh',
-    'comic_meta': {
-      'alt_text': 'Love and circuit analysis, hand in hand at last.',
-      'number': 62,
-      'link': 'https://www.xkcd.com/62',
-      'image': 'karnaugh.jpg',
-      'image_link': 'https://imgs.xkcd.com/comics/karnaugh.jpg'
+    "comic": "Valentine - Karnaugh",
+    "comic_meta": {
+      "alt_text": "Love and circuit analysis, hand in hand at last.",
+      "number": 62,
+      "link": "https://www.xkcd.com/62",
+      "image": "karnaugh.jpg",
+      "image_link": "https://imgs.xkcd.com/comics/karnaugh.jpg"
     }
   }
 ]
