@@ -1,1 +1,7 @@
 commons/settings/secrets.yaml
+__pycache__/
+commons/__pycache__/
+commons/__pycache__/*
+models/__pycache__/
+models/__pycache__/*
+*.pyc
