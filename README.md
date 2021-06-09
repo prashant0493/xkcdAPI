@@ -3,7 +3,7 @@
 The project contains a task to pull data off [xkcd](https://xkcd.com/) and stores into 
 MySQL database.
 
-# Setup
+# Python Setup
 -   Create virtualenv
 
 ```
@@ -52,8 +52,10 @@ related versions of `mysql` should be matched.
 Good luck!
 
 # Running tests
-
-[TODO] to be added soon.
+Run following command for all the test cases
+```shell script
+pytest
+```
 
 # Development notes
 
