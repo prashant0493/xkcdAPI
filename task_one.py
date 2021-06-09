@@ -94,8 +94,8 @@ def print_formatted_output(fetched_comics: List[Dict]) -> None:
         }
         for comic in comics
     ]
-
-    print(comics)
+    
+    print(json.dumps(comics, indent=4, sort_keys=True))
 
 
 if __name__ == "__main__":
