@@ -8,7 +8,7 @@ from models.basemodel import Base
 
 
 class Comic(Base):
-    """ Pydantic model class to validate data for `Comic` object from xkcd API"""
+    """Pydantic model class to validate data for `Comic` object from xkcd API"""
 
     # attribute fields
     month: Optional[str] = ""

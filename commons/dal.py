@@ -4,11 +4,7 @@ from typing import List, Dict
 from commons.db_con_helper import get_sql_db_connection
 
 
-def build_upsert_sql_query(
-    table_name: str,
-    keys_: List,
-    value_set_: List
-) -> str:
+def build_upsert_sql_query(table_name: str, keys_: List, value_set_: List) -> str:
     """Builds sql query based to insert or update.
 
     Args:
@@ -89,11 +85,7 @@ def upsert_comics(comics: List[Dict]) -> None:
     connection = get_sql_db_connection()
     try:
         with connection.cursor() as cursor:
-            sql = build_upsert_sql_query(
-                "xkcdDB.comics",
-                key_set,
-                value_set
-            )
+            sql = build_upsert_sql_query("xkcdDB.comics", key_set, value_set)
             cursor.execute(sql)
             connection.commit()
     finally:

@@ -9,4 +9,5 @@ from datetime import datetime
 
 class Base(BaseModel):
     """Base model for common dataclass attributes"""
+
     num: int

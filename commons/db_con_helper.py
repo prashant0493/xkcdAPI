@@ -25,7 +25,7 @@ def _load_from_file(filename):
     if not os.path.exists(filename):
         return
 
-    with open(filename, 'r') as f:
+    with open(filename, "r") as f:
         doc = yaml.load(f, Loader=yaml.FullLoader)
 
     if not doc:
@@ -45,6 +45,7 @@ def _abs_path(filename):
     Returns:
         str: The assembled absolute path for ``filename``.
     """
+
     return os.path.join(os.path.dirname(__file__), filename)
 
 
@@ -55,17 +56,16 @@ def _load():
     Note:
         Settings under ``settings/secrets.yaml`` are only loaded in a DEV
         environment.
-
     """
 
     global _settings
 
-    env_filename = _abs_path('settings/secrets.yaml')
+    env_filename = _abs_path("settings/secrets.yaml")
     _load_from_file(env_filename)
 
 
 def get_sql_db_connection() -> Connection:
-    """ Assembles connection object to the SQL database.
+    """Assembles connection object to the SQL database.
 
     Returns:
         Connection:  connection object to the SQL database.
@@ -80,12 +80,14 @@ def get_sql_db_connection() -> Connection:
     sql_port = _settings.get("LOCALSQL_PORT")
     sql_db = _settings.get("LOCALSQL_DATABASE")
 
-    connection = pymysql.connect(host=sql_host,
-                                 user=sql_username,
-                                 password=sql_password,
-                                 db=sql_db,
-                                 port=sql_port,
-                                 charset='utf8mb4',
-                                 cursorclass=pymysql.cursors.DictCursor)
+    connection = pymysql.connect(
+        host=sql_host,
+        user=sql_username,
+        password=sql_password,
+        db=sql_db,
+        port=sql_port,
+        charset="utf8mb4",
+        cursorclass=pymysql.cursors.DictCursor,
+    )
 
     return connection

@@ -1,10 +1,6 @@
 """Test suite to test all functionalities end-to-end under `task_one.py` module"""
 
-from task_one import (
-    rand_set,
-    fetch_comic,
-    upsert_comics
-)
+from task_one import rand_set, fetch_comic, upsert_comics
 
 
 def test_fetch_comic(mock_response):
@@ -32,9 +28,9 @@ def test_upsert_comics(setup_for_upsert):
     """Test to ensure results end-to-end fetching & inserting into database"""
 
     first_record = fetch_comic(11)
-    first_record.update({'num': 11})
+    first_record.update({"num": 11})
     second_record = fetch_comic(1)
-    second_record.update({'num': 1})
+    second_record.update({"num": 1})
 
     result = [first_record, second_record]
     cursor = setup_for_upsert

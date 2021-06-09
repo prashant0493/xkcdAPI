@@ -18,13 +18,11 @@ from pydantic.error_wrappers import ValidationError
 # module imports
 from commons.constants import Endpoints
 from models.datamodels.comics import Comic
-from commons.dal import (
-    upsert_comics
-)
+from commons.dal import upsert_comics
 
 
 def rand_set(start: int = 1, stop: int = 87, limit: int = 15) -> List[int]:
-    """ creates a list of unique random integers in numerical range(start:stop)
+    """creates a list of unique random integers in numerical range(start:stop)
 
     Args:
         start (int): first numeric value in range.
@@ -37,7 +35,7 @@ def rand_set(start: int = 1, stop: int = 87, limit: int = 15) -> List[int]:
 
     result_ = []
     while len(result_) < limit:
-        random_ = randrange(start, stop+1)
+        random_ = randrange(start, stop + 1)
         if random_ not in result_:
             result_.append(random_)
         else:
@@ -60,13 +58,17 @@ def fetch_comic(comic_id: int) -> Dict:
     response = requests.get(endpoint)
 
     response.raise_for_status()
-    print(f"\n-- data has been downloaded from ```{endpoint}``` -- {response.status_code}")
+    print(
+        f"\n-- data has been downloaded from ```{endpoint}``` -- {response.status_code}"
+    )
 
     data = json.loads(response.text, object_pairs_hook=OrderedDict)
     try:
         comic = Comic(**data)
     except ValidationError as e:
-        print(f"[ Error ] fetched comic record does not meet validations. Details  -\n{e}")
+        print(
+            f"[ Error ] fetched comic record does not meet validations. Details  -\n{e}"
+        )
 
     return data
 
@@ -89,12 +91,12 @@ def print_formatted_output(fetched_comics: List[Dict]) -> None:
                 "number": comic.num,
                 "link": comic.link_,
                 "image": comic.image,
-                "image_link": comic.img
-            }
+                "image_link": comic.img,
+            },
         }
         for comic in comics
     ]
-    
+
     print(json.dumps(comics, indent=4, sort_keys=True))
 
 
@@ -108,30 +110,34 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description="CLI tool to fetch resource(s) from any API",
         epilog=example,
-        formatter_class=argparse.RawDescriptionHelpFormatter
+        formatter_class=argparse.RawDescriptionHelpFormatter,
     )
     parser.add_argument(
-        "-m", "--max",
+        "-m",
+        "--max",
         metavar="max",
         type=int,
         default=87,
         help="max number of resources to be fetch",
-        dest="max"
+        dest="max",
     )
     parser.add_argument(
-        "-a", "--any",
+        "-a",
+        "--any",
         metavar="any",
         type=int,
         default=15,
         help="random sized chunk of resources to fetch",
-        dest="any"
+        dest="any",
     )
     args = parser.parse_args()
 
     comic_set = rand_set(1, args.max, args.any)
     print(f"\n[ NOTE ] LIST OF RANDOM COMIC IDs :: \n\n{comic_set}\n")
     pool_size = 5
-    print(f"\n[ NOTE ] requesting comic_set urls -\n ** ThreadPool of {pool_size} at work **")
+    print(
+        f"\n[ NOTE ] requesting comic_set urls -\n ** ThreadPool of {pool_size} at work **"
+    )
 
     # Thread-pool to resolve IO-intensive operation real quick.
     pool = ThreadPool(pool_size)

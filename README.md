@@ -48,6 +48,14 @@ related versions of `mysql` should be matched.
 # Usage
 -   Activate virtual env `source venv/bin/activate`
 -   Start the app with `python task_one.py`
+-   Alternatively, you can also pass command line arguments to specify max comic ids (--max) and set of random size (--any).
+```shell script
+# example (full options)
+python task_one.py --max 87 --any 15
+
+# OR  (short options)
+python task_one.py -m 87 -a 15
+```
 
 Good luck!
 
