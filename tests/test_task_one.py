@@ -40,6 +40,3 @@ def test_upsert_comics(setup_for_upsert):
     cursor = setup_for_upsert
     upsert_comics(result)
     assert cursor.execute("SELECT * FROM xkcdDB.comics;") == 3
-
-
-
