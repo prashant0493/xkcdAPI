@@ -5,3 +5,8 @@ commons/__pycache__/*
 models/__pycache__/
 models/__pycache__/*
 *.pyc
+.ipynb_checkpoints
+.idea
+.idea/*
+venv
+py3env
