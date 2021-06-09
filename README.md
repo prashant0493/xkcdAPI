@@ -28,7 +28,7 @@ Note : This project has been tested against `mysql-8.0.21` using `RHEL8.4`.
 We recommend `yum` installation for RPM-based software installations.
 More instructions for [installing MySQL on Linux](https://dev.mysql.com/doc/refman/8.0/en/linux-installation.html). 
 
-**Database setup instructions -**
+# Database setup instructions
 
 -   To setup, database use sql script `database_.sql` (contains DDL).
 -   You should create a file as `commons/settings/secrets.yaml` to contain database credentials
