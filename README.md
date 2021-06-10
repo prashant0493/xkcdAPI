@@ -6,9 +6,10 @@ MySQL database.
 # Python Setup
 -   Create virtualenv
 
-```
+```commandline
 virtualenv venv
-# `virtualenv -p=python3 venv` (If `Py3` is not the default version)
+# virtualenv -p=python3 venv  
+# (If `Py3` is not the default version)
 ```
 -   Activate virtualenv 
 ```
@@ -20,18 +21,10 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
--   `mysql` database installation - 
-
-https://tecadmin.net/install-mysql-8-centos-8/
-
-Note : This project has been tested against `mysql-8.0.21` using `RHEL8.4`.
-We recommend `yum` installation for RPM-based software installations.
-More instructions for [installing MySQL on Linux](https://dev.mysql.com/doc/refman/8.0/en/linux-installation.html). 
-
 # Database setup instructions
 
--   To setup, database use sql script `database_.sql` (contains DDL).
--   You should create a file as `commons/settings/secrets.yaml` to contain database credentials
+-   To setup, database execute sql script `database_.sql` (contains DDL) in MySQL query console.
+-   You should create a file as `commons/settings/secrets.yaml` to contain database credentials. Example -
 
 ```
 # ---LOCAL---
@@ -42,14 +35,26 @@ LOCALSQL_PASSWORD: xxxxx
 LOCALSQL_DATABASE: xkcdDB
 ```
 
+-   `mysql` database installation - 
+
+https://tecadmin.net/install-mysql-8-centos-8/
+
+Note : This project has been tested against `mysql-8.0.21` using `RHEL8.4`.
+We recommend `yum` installation for RPM-based software installations.
+More instructions for [installing MySQL on Linux](https://dev.mysql.com/doc/refman/8.0/en/linux-installation.html). 
+
+
 NOTE: `pymysql` [installation](https://pymysql.readthedocs.io/en/latest/user/installation.html) and 
 related versions of `mysql` should be matched.
 
 # Usage
--   Activate virtual env `source venv/bin/activate`
--   Start the app with `python task_one.py`
+-   Activate virtual environment and start app with python command. Example -
+```commandline
+source venv/bin/activate
+python task_one.py
+```
 -   Alternatively, you can also pass command line arguments to specify max comic ids (--max) and set of random size (--any).
-```shell script
+```commandline
 # example (full options)
 python task_one.py --max 87 --any 15
 
@@ -61,7 +66,7 @@ Good luck!
 
 # Running tests
 Run following command for all the test cases
-```shell script
+```commandline
 pytest
 ```
 
